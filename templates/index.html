@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-list"></i> Repair Orders</h2>
+    <a href="{{ url_for('create_order') }}" class="btn btn-custom">
+        <i class="fas fa-plus"></i> Create New Order
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        {% if orders %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Vehicle Reg.</th>
+                            <th>Make/Model</th>
+                            <th>Driver</th>
+                            <th>Date In</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td><strong>{{ order[1] }}</strong></td>
+                            <td>{{ order[2] }}</td>
+                            <td>{{ order[7] }} {{ order[8] }}</td>
+                            <td>{{ order[9] }}</td>
+                            <td>{{ order[5] }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if order[22] == 'Completed' else 'warning' if order[22] == 'In Progress' else 'secondary' }}">
+                                    {{ order[22] }}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('view_order', order_id=order[0]) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">No repair orders found</h4>
+                <p class="text-muted">Create your first repair order to get started.</p>
+                <a href="{{ url_for('create_order') }}" class="btn btn-custom">
+                    <i class="fas fa-plus"></i> Create First Order
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

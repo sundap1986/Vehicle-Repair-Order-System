@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-plus"></i> Create New Repair Order</h2>
+    </div>
+</div>
+
+<form method="POST">
+    <div class="row">
+        <!-- Vehicle Information -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-car"></i> Vehicle Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Registration Number *</label>
+                        <input type="text" class="form-control" name="reg_number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">VIN Number</label>
+                        <input type="text" class="form-control" name="vin_number">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kilometers</label>
+                        <input type="number" class="form-control" name="kms">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Vehicle In Date *</label>
+                                <input type="date" class="form-control" name="vehicle_in_date" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Vehicle In Time *</label>
+                                <input type="time" class="form-control" name="vehicle_in_time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Make *</label>
+                                <input type="text" class="form-control" name="make" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Model *</label>
+                                <input type="text" class="form-control" name="model" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver & Service Information -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-user"></i> Driver & Service Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Driver Name *</label>
+                        <input type="text" class="form-control" name="driver_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="phone_number">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vehicle Came From Site</label>
+                        <input type="text" class="form-control" name="vehicle_came_from_site">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Site Incharge Name</label>
+                        <input type="text" class="form-control" name="site_incharge_name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Driver Permanent to Vehicle</label>
+                        <select class="form-select" name="driver_permanent">
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Road Test Along with Driver</label>
+                        <select class="form-select" name="road_test_along">
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Service Details -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-tools"></i> Service Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Type of Service</label>
+                        <select class="form-select" name="service_type">
+                            <option value="">Select Service Type...</option>
+                            <option value="Preventive Maintenance">Preventive Maintenance</option>
+                            <option value="Breakdown Repair">Breakdown Repair</option>
+                            <option value="Accident Repair">Accident Repair</option>
+                            <option value="General Service">General Service</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Under Warranty</label>
+                        <select class="form-select" name="under_warranty">
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Repair Estimation Cost</label>
+                        <input type="number" step="0.01" class="form-control" name="repair_estimation_cost">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Expected Delivery Date</label>
+                                <input type="date" class="form-control" name="expected_delivery_date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Expected Delivery Time</label>
+                                <input type="time" class="form-control" name="expected_delivery_time">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Allotted Technician</label>
+                        <input type="text" class="form-control" name="allotted_technician">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vehicle Checks -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-check-circle"></i> Vehicle Physical Status Checks</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">E.Oil Level</label>
+                                <select class="form-select" name="oil_level">
+                                    <option value="">Select...</option>
+                                    <option value="Ok">Ok</option>
+                                    <option value="Not Ok">Not Ok</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Housing Oil Level</label>
+                                <select class="form-select" name="housing_oil_level">
+                                    <option value="">Select...</option>
+                                    <option value="Ok">Ok</option>
+                                    <option value="Not Ok">Not Ok</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Clutch Oil Level</label>
+                                <select class="form-select" name="clutch_oil_level">
+                                    <option value="">Select...</option>
+                                    <option value="Ok">Ok</option>
+                                    <option value="Not Ok">Not Ok</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Battery & Lights Check</label>
+                                <select class="form-select" name="battery_lights_check">
+                                    <option value="">Select...</option>
+                                    <option value="Ok">Ok</option>
+                                    <option value="Not Ok">Not Ok</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">General Checks Done</label>
+                                <select class="form-select" name="general_checks_done">
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Steering Oil Level</label>
+                                <select class="form-select" name="steering_oil_level">
+                                    <option value="">Select...</option>
+                                    <option value="Ok">Ok</option>
+                                    <option value="Not Ok">Not Ok</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Other Oil Leakages</label>
+                        <select class="form-select" name="other_oil_leakages">
+                            <option value="">Select...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tyres & Stepney Condition</label>
+                        <select class="form-select" name="tyres_stepney_condition">
+                            <option value="">Select...</option>
+                            <option value="Ok">Ok</option>
+                            <option value="Not Ok">Not Ok</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <button type="submit" class="btn btn-custom btn-lg">
+                        <i class="fas fa-save"></i> Create Repair Order
+                    </button>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-lg ms-3">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
