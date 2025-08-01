@@ -1,7 +1,7 @@
-# Install Python as pre-requisite.
+##### Note: Install Python as pre-requisite.
 
-# Install Flask Package
-pip install flask
+##### Install Flask Package
+> pip install flask
 
-# Run the application
-python app.py
+##### Run the application
+> python app.py
